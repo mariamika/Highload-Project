@@ -1,4 +1,3 @@
-
 <?php
 
 function memoryUsage($usage, $base_memory_usage) {

@@ -58,30 +58,32 @@ echo 'Array unset.'.PHP_EOL;
 memoryUsage(memory_get_usage(), $base_memory_usage);
 
 function deep_end($count){
-  //добавляем 1 к парарметру count
-  $count +=1;
-  if($count < 48){
-  deep_end($count);
-  }
-  else {
-  trigger_error("going off thi deep end!");
-  }
-  
-  }
-  
-  deep_end(1);
-  
-  
-  $time_end = time();
-  
-  $log = new Logger('time');
-  $log->pushHandler(new StreamHandler('log/time.log', Logger::DEBUG));
-  
-  $log->debug($time_end - $time_start);
-  $log->debug(memory_get_usage());
-  $log->debug($base_memory_usage);
-  
-  $logger = new Logger('message');
-  $logger->pushHandler(new StreamHandler('log/message.log', Logger::ALERT));
-  
-  $logger->alert($message);
+//добавляем 1 к парарметру count
+$count +=1;
+if($count < 48){
+deep_end($count);
+}
+else {
+trigger_error("going off thi deep end!");
+}
+
+}
+
+deep_end(1);
+
+
+$time_end = time();
+
+$log = new Logger('time');
+$log->pushHandler(new StreamHandler('log/time.log', Logger::DEBUG));
+
+$log->debug($time_end - $time_start);
+$log->debug(memory_get_usage());
+$log->debug($base_memory_usage);
+
+$logger = new Logger('message');
+$logger->pushHandler(new StreamHandler('log/message.log', Logger::ALERT));
+
+$logger->alert($message);
+
+?>
